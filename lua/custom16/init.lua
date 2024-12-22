@@ -108,6 +108,21 @@ hl_groups = {
     ["MiniIconsRed"] = { fg = red, bg = c.no, extras = {} },
     ["MiniIconsYellow"] = { fg = yellow, bg = c.no, extras = {} },
 
+    ["FzfLuaNormal"] = { fg = fg, bg = bg, extras = {} },
+    ["FzfLuaFzfCursorLine"] = "CursorLine",
+    ["FzfLuaFzfMatch"] = "Accent",
+    ["FzfLuaFzfBorder"] = { fg = c.no, bg = c.no, extras = {} },
+    ["FzfLuaFzfScrollbar"] = { fg = c.no, bg = c.no, extras = {} },
+    ["FzfLuaFzfSeparator"] = { fg = c.no, bg = c.no, extras = {} },
+    ["FzfLuaFzfGutter"] = { fg = c.no, bg = c.no, extras = {} },
+    ["FzfLuaFzfHeader"] = { fg = c.no, bg = c.no, extras = {} },
+    ["FzfLuaFzfInfo"] = { fg = c.no, bg = c.no, extras = {} },
+    ["FzfLuaFzfPointer"] = { fg = c.no, bg = c.no, extras = {} },
+    ["FzfLuaFzfMarker"] = { fg = c.no, bg = c.no, extras = {} },
+    ["FzfLuaFzfSpinner"] = "Comment",
+    ["FzfLuaFzfPrompt"] = { fg = c.no, bg = c.no, extras = {} },
+    ["FzfLuaFzfQuery"] = { fg = c.no, bg = c.no, extras = {} },
+
     ----------------
     -- Statusline --
     ----------------
@@ -135,13 +150,22 @@ hl_groups = {
     ["StatusLineInfo"] = { fg = green, bg = bg, extras = {} },
     ["StatusLineHint"] = { fg = blue, bg = bg, extras = {} },
 
+    ["HomeRed"] = { fg = red, bg = c.no, extras = { c.bo } },
+    ["HomeTeal"] = { fg = teal, bg = c.no, extras = { c.bo } },
+    ["HomeMagenta"] = { fg = magenta, bg = c.no, extras = { c.bo } },
+    ["HomeBlue"] = { fg = blue, bg = c.no, extras = { c.bo } },
     ["HomeGreen"] = { fg = green, bg = c.no, extras = { c.bo } },
     ["HomeYellow"] = { fg = yellow, bg = c.no, extras = { c.bo } },
     ["HomeWhite"] = { fg = fg, bg = c.no, extras = { c.bo } },
     ["HomeGrey"] = { fg = comment, bg = c.no, extras = { c.bo } },
+    ["HomeBlueGrey"] = { fg = utils.merge(blue, comment, 0.5), bg = c.no, extras = { c.bo } },
     ["HomeIcon"] = { fg = accent, bg = c.no, extras = { c.bo } },
     ["HomeText"] = { fg = fg, bg = c.no, extras = { c.bo } },
     ["HomeMapping"] = { fg = comment, bg = c.no, extras = { c.bo } },
+    ["HomeDarkYellow"] = { fg = utils.dim(yellow, 0.6), bg = c.no, extras = { c.bo } },
+    ["HomeDarkYellow1"] = { fg = utils.dim(yellow, 0.7), bg = c.no, extras = { c.bo } },
+    ["HomeDarkYellow2"] = { fg = utils.dim(yellow, 0.8), bg = c.no, extras = { c.bo } },
+    ["HomeDarkYellow3"] = { fg = utils.dim(yellow, 0.9), bg = c.no, extras = { c.bo } },
 
     -------------------
     -- Comments.nvim --
