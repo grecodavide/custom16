@@ -18,11 +18,11 @@ return {
 },
 ```
 
-Note that this supports hot reloading, so if you change the palette and then
-reset the colorscheme, it will change the palette immediately. Here is an example of a palette:
+Here is an example of a palette:
 ```lua
 -- must return the palette
 return {
+    -- base 16 colors
     main = {
         "#141410",
         "#cc241d",
@@ -43,12 +43,13 @@ return {
         "#ebdbb2",
     },
     extras = {
-        accent         = "#24837b",
-        inactivelinenr = "#877b5b",
-        comment = "#746a4f",
-        split = "#9b8d67",
-        cursorline = "#15221c",
+        accent         = "#24837b", -- used to display some things like current line nr, LSP server..
+        inactivelinenr = "#877b5b", -- color for numbers other than current line
+        comment = "#746a4f",        -- comments color
+        split = "#9b8d67",          -- color for split separator
+        cursorline = "#15221c",     -- color for cursorline. I like to set it same as accent, but dimmed
     }
 }
 ```
 
+Note that this supports hot reloading, so if you change the palette and then reset the colorscheme, it will change the palette immediately.
