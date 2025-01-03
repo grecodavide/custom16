@@ -52,4 +52,4 @@ return {
 }
 ```
 
-Note that this supports hot reloading, so if you change the palette and then reset the colorscheme, it will change the palette immediately.
+Note that this supports hot reloading, so if you change the palette and then set again the colorscheme (e.g. `:colorscheme custom16<CR>`), it will update the colors immediately.
