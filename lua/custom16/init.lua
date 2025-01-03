@@ -23,9 +23,13 @@ local function set_hl(name, value)
 end
 
 local M = {}
+local term_cmd
 
 M.setup = function(opts)
     _G.custom16_palette_path = opts.palette_path or "custom16_palette"
+    if opts.reload_terminal_cmd then
+        _G.custom16_reload_terminal_cmd = "silent !" .. opts.reload_terminal_cmd .. "&"
+    end
     vim.cmd.colorscheme("custom16")
 end
 
