@@ -23,7 +23,6 @@ local function set_hl(name, value)
 end
 
 local M = {}
-local term_cmd
 
 M.setup = function(opts)
     _G.custom16_palette_path = opts.palette_path or "custom16_palette"

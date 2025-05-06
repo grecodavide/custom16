@@ -33,11 +33,7 @@ local split = c.extras["split"]
 local cursorline = c.extras["cursorline"]
 local inactivelinenr = c.extras["inactivelinenr"]
 
-local dimmed_red = utils.merge(red, bg, 0.5)
-local dimmed_yellow = utils.merge(yellow, bg, 0.5)
-local dimmed_blue = utils.merge(blue, bg, 0.5)
-local dimmed_teal = utils.merge(teal, bg, 0.5)
-local dimmed_magenta = utils.merge(magenta, bg, 0.5)
+local dimmed = utils.merge(bg, fg, 0.7)
 
 local nontext = utils.merge(comment, bg, 0.5)
 local hl_bg_light = { fg = c.no, bg = utils.merge(comment, bg, 0.15), {} }
@@ -88,6 +84,7 @@ local type_to_color = {
 hl_groups = {
     ["Accent"] = { fg = fg, bg = c.no, extras = {} },
     ["Inactive"] = { fg = comment, bg = c.no, extras = {} },
+    ["DimInactiveWindows"] = { fg = dimmed, bg = c.no, extras = {} },
 
     ----------------
     -- Statusline --
@@ -205,7 +202,7 @@ hl_groups = {
     --------------
     -- Defaults --
     --------------
-    ["Comment"] = { fg = type_to_color["Comment"], bg = c.no, extras = {} },
+    ["Comment"] = { fg = type_to_color["Comment"], bg = c.no, extras = { c.it } },
     ["Variable"] = { fg = type_to_color["Variable"], bg = c.no, extras = {} },
     ["Constant"] = { fg = type_to_color["Constant"], bg = c.no, extras = {} },
     ["String"] = { fg = type_to_color["String"], bg = c.no, extras = {} },
@@ -271,10 +268,10 @@ hl_groups = {
     ----------------
     -- Diagnostic --
     ----------------
-    ["DiagnosticError"] = { fg = red, bg = c.no, extras = {} },
-    ["DiagnosticWarn"] = { fg = yellow, bg = c.no, extras = {} },
-    ["DiagnosticInfo"] = { fg = green, bg = c.no, extras = {} },
-    ["DiagnosticHint"] = { fg = blue, bg = c.no, extras = {} },
+    ["DiagnosticError"] = { fg = red, bg = c.no, extras = { c.ul } },
+    ["DiagnosticWarn"] = { fg = yellow, bg = c.no, extras = { c.ul } },
+    ["DiagnosticInfo"] = { fg = green, bg = c.no, extras = { c.ul } },
+    ["DiagnosticHint"] = { fg = blue, bg = c.no, extras = { c.ul } },
 
     ["DiagnosticUnderlineError"] = { fg = red, bg = c.no, extras = { c.ul } },
     ["DiagnosticUnderlineWarn"] = { fg = yellow, bg = c.no, extras = { c.ul } },
@@ -349,6 +346,7 @@ hl_groups = {
     ["@variable"] = "Variable",
     ["@module"] = { fg = blue, bg = c.no, extras = { c.bo } },
     ["@lsp.type.variable"] = "Variable",
+    ["@lsp.type.modifier.java"] = "Keyword",
 
     -- ZIG
     ["@lsp.type.namespace.zig"] = "Include",
@@ -359,7 +357,7 @@ hl_groups = {
     ----------------
     -- Treesitter --
     ----------------
-    ["TreesitterContextBottom"] = { sp = cursorline, bg = c.no, extras = { c.ul } },
+    ["TreesitterContextBottom"] = { sp = accent, bg = c.no, extras = { c.ul } },
     ["@variable.rust"] = { fg = c.no, bg = c.no, extras = {} },
 
     -- Tex
@@ -380,6 +378,7 @@ hl_groups = {
     ["texMathSub"] = { fg = green, bg = c.no, extras = { c.bo } },
     ["texFileArg"] = { fg = c.no, bg = c.no, extras = { c.ul } },
     ["@markup.math.latex"] = { fg = green, bg = c.no, extras = { c.bo } },
+    ["@markup.strong"] = { fg = red, bg = c.no, extras = { c.bo } },
     ["@function.latex"] = { fg = green, bg = c.no, extras = { c.bo } },
     ["@module.latex"] = { fg = yellow, bg = c.no, extras = { c.bo } },
     ["@punctuation.bracket.latex"] = { fg = red, bg = c.no, extras = { c.bo } },
@@ -390,6 +389,7 @@ hl_groups = {
     ["@markup.raw.block.markdown"] = { fg = c.no, bg = utils.merge(bg, fg, 0.95), extras = {} },
     ["@keyword.directive.markdown"] = { fg = comment, bg = c.no, extras = {} },
     ["CodeBlock"] = { fg = c.no, bg = utils.merge(bg, fg, 0.95), extras = {} },
+    ["RenderMarkdownCodeBorder"] = "CodeBlock",
     ["RenderMarkdownBullet"] = { fg = accent, bg = c.no, extras = { c.bo } },
     ["RenderMarkdownUnchecked"] = { fg = comment, bg = c.no, extras = {} },
     ["RenderMarkdownChecked"] = { fg = green, bg = c.no, extras = {} },
@@ -612,6 +612,8 @@ hl_groups = {
     -- -- *hl-GitSignsDeleteLnInline*
     -- ["GitSignsDeleteLnInline"] = { fg = c.no, bg = c.no, extras = {} },
     -- -- Used for deleted word diff regions when `config.word_diff == true`.
+
+    ["dCursor"] = { fg = green, bg = c.no, extras = {} },
 }
 
 local md_headers = { red, yellow, green, blue, teal, magenta }
